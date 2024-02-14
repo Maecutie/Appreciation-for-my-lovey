@@ -152,9 +152,21 @@ Your kindness is endless, and your compassion is eternal. I find solace in your 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const audio = document.getElementById('audio');
-            audio.play();
-        });
+            
+            // Function to play audio when user interacts with the page
+            function playAudio() {
+                audio.play();
+                // Remove the event listener to avoid multiple playbacks
+                document.removeEventListener('click', playAudio);
+            }
 
+            // Check if the audio element exists
+            if (audio) {
+                // Add event listener to play audio when user interacts with the page
+                document.addEventListener('click', playAudio);
+            }
+        });
+        
         const readButton = document.getElementById('readButton');
         const confession = document.getElementById('confession');
 
